@@ -25,12 +25,18 @@ const columns = ref<Column[]>([
 </script>
 
 <template>
-  <div v-for="column in columns" :key="column.id">
-    <header>
-      {{ column.title }}
-    </header>
-    <p v-for="task in column.tasks" :key="task.id">
-      {{ task.title }}
-    </p>
+  <div class="flex gap-4 overflow-x-auto items-start">
+    <div
+      v-for="column in columns"
+      :key="column.id"
+      class="column bg-gray-300 p-5 rounded min-w-[250px]"
+    >
+      <header>
+        {{ column.title }}
+      </header>
+      <p v-for="task in column.tasks" :key="task.id">
+        {{ task.title }}
+      </p>
+    </div>
   </div>
 </template>
