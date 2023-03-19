@@ -16,6 +16,11 @@ const columns = ref<Column[]>([
         title: 'Send quotation to the client',
         createdAt: new Date(),
       },
+      {
+        id: nanoid(),
+        title: 'Make an appointment with client',
+        createdAt: new Date(),
+      },
     ],
   },
   { id: nanoid(), title: 'In Progress', tasks: [] },
@@ -31,11 +36,16 @@ const columns = ref<Column[]>([
       :key="column.id"
       class="column bg-gray-300 p-5 rounded min-w-[250px]"
     >
-      <header>
+      <header class="font-bold mb-4">
         {{ column.title }}
       </header>
+
       <NewTask v-for="task in column.tasks" :task="task" :key="task.id">
       </NewTask>
+
+      <footer>
+        <button class="text-gray-500">+ Add a Card</button>
+      </footer>
     </div>
   </div>
 </template>
