@@ -42,7 +42,7 @@ const columns = ref<Column[]>([
     >
       <template #item="{ element: column }: { element: Column }">
         <div class="column bg-gray-300 p-5 rounded min-w-[250px]">
-          <header class="font-bold mb-4 flex items-center">
+          <header class="font-bold mb-4 flex">
             <DragHandle />
             {{ column.title }}
           </header>
@@ -58,8 +58,8 @@ const columns = ref<Column[]>([
             </template>
           </draggable>
 
-          <footer>
-            <button class="text-gray-500">+ Add a Card</button>
+          <footer class="mt-5">
+            <AddCardButton />
           </footer>
         </div>
       </template>
